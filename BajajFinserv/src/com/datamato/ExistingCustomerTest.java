@@ -30,20 +30,21 @@ import io.appium.java_client.touch.offset.PointOption;
 
 
 
-public class ExistingCustomerTest {
-	
+public class ExistingCustomerTest
+{
+	int i = 1;
 	@AndroidFindBy(uiAutomator = "new UiScrollable(new UiSelector()).scrollIntoView(text(\"POCKET INSURANCE\"))")
 	public WebElement pocketinsurance;
 
-//ExistingCustomer exe_Cust = new ExistingCustomer();
+	 //String workingDevice = "192.168.30.146:5555";
+	String workingDevice = "a315e67c";// a315e67c d6f08719
+	AppiumDriver<MobileElement> driver = null;
+	DesiredCapabilities caps = new DesiredCapabilities();
 
-//String workingDevice = "emulator-5554";
-String workingDevice = "a315e67c";// a315e67c d6f08719
-AppiumDriver<MobileElement> driver = null;
-DesiredCapabilities caps = new DesiredCapabilities();
-
-public void scrollDown()
+public void scrollDownDown()
 {
+	i++;
+	//System.out.println("Size of Mobile: " +driver.manage().window().getSize());
 	Dimension dimention = driver.manage().window().getSize();
 	
 	Double scrollHeightStart = dimention.getHeight() * 0.5;
@@ -54,33 +55,43 @@ public void scrollDown()
 	
 	new TouchAction<>(driver)
 		.press(PointOption.point(0, scrollStart))
-		.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(2)))
+		.waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
 		.moveTo(PointOption.point(0, scrollEnd))
 		.release().perform();
 }
 
-public List<MobileElement> getItemWebView()
+/*public List<MobileElement> getItemViews()
 {
+	return (List<MobileElement>) driver.findElements(By.xpath("//*[@text='rec offers-outline Recommended']"));
+}*/
+public List<MobileElement> getItemWebView() throws InterruptedException
+{
+	//Thread.sleep(3000);
+	//System.out.println("In List:");
+	//System.out.println("Size of List First time: "+getItemWebView().size());
 	return (List<MobileElement>) driver.findElements(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]"));
-	
+	//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]")));
 }
 
 public void scrollTillWebView() throws InterruptedException
-{
-	while(getItemWebView().size() == 0)
-	{
-		System.out.println("Calling scroll");
-		scrollDown();
-	}
+{	
+	// driver.findElement(By.xpath("//*[@text='rec offers-outline Recommended']")).click();
+		while(getItemWebView().size() == 1)
+		{
+			//System.out.println("Calling scroll");
+			if(i<8)
+			scrollDownDown();
+			else break;
+		}
 	
-	if(getItemWebView().size() > 0)
+	if(i >=8)//getItemWebView().size() > 1
 	{
 		//System.out.println("Clicking scroll");
-		System.out.println("Clicking scroll: " +getItemWebView().get(0));
+		//System.out.println("Clicking scroll: " +getItemWebView().get(0));
 		getItemWebView().get(0).click();
 		//driver.findElements(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]"));
 	}
-	Thread.sleep(2000);
+	Thread.sleep(4000);
 	
 }
 
@@ -114,6 +125,7 @@ public void connectionInit() {
  //caps.setCapability("appActivity", "com.BajajServiceApp.VikramUAT.MainActivity");
  caps.setCapability("appActivity", "org.altruist.BajajExperia.MainActivity");
  caps.setCapability("noReset", "true");
+ 
  try
  {
 	 driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
@@ -233,37 +245,93 @@ public void PersonalLoanSeeDetails() throws InterruptedException
 public void PocketInsurance() throws InterruptedException
 {
 	//WebElement element;
-	//WebDriverWait wait = new WebDriverWait(driver, 20);
+	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
-	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]")));	
-	//element.click();
+	scrollTillWebView();
 	
-	//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Travel']]
-	
-	//*[@text='BROCHURE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]
-	//*[@contentDescription='Navigate up']
-	
-	//*[@text='KNOW MORE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]
-	//*[@text='arrow back']
-	
-	
-	
-	//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]])[2]/*/*[@text='APPLY NOW'])[1]
-	//*[@contentDescription='close button']
-	
+	String seeDetailsTypeOfInsuranceOnApp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='TYPES OF INSURANCE']"))).getText();
+	Assert.assertEquals(seeDetailsTypeOfInsuranceOnApp, "TYPES OF INSURANCE");
+		
 	//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Lifestyle']]
-
 	//*[@class='android.view.View' and ./*[@class='android.view.View' and ./*[@text='Assistance'] and ./*[@class='android.widget.Image']]]
 	//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Health']]
+}
+
+@Test(priority= 7)
+public void PocketInsuranceClickTravel() throws InterruptedException
+{
+	WebElement element;
+	WebDriverWait wait = new WebDriverWait(driver, 20);
 		
-	Assert.assertEquals(true, true);
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Travel']]")));	
+	element.click();
 	
+	String verifyWeCameInTravel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Travel' and @class='android.view.View']"))).getText();
+	Assert.assertEquals(verifyWeCameInTravel, "Travel");
+	
+	
+
+}
+
+@Test(priority= 8)
+public void PocketInsuranceTravelBrochure() throws InterruptedException
+{
+	WebElement element;
+	WebDriverWait wait = new WebDriverWait(driver, 20);
+	
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='BROCHURE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]")));	
+	element.click();
+	
+	String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Pilgrimage.pdf']"))).getText();
+	Assert.assertEquals(verifyWeCameBrochure, "Pilgrimage.pdf");
+	
+	Thread.sleep(2000);
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='Navigate up']")));	
+	element.click();
+
+}
+@Test(priority= 9)
+public void PocketInsuranceTravelKnowMore() throws InterruptedException
+{
+	WebElement element;
+	WebDriverWait wait = new WebDriverWait(driver, 20);
+	
+		
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='KNOW MORE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]")));	
+	element.click();
+	
+	String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Prompt services for a worry-free pilgrimage']"))).getText();
+	Assert.assertEquals(verifyWeCameBrochure, "Prompt services for a worry-free pilgrimage");
+	
+	Thread.sleep(2000);
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='arrow back']")));	
+	element.click();	
+	
+
+}
+
+@Test(priority= 10)
+public void PocketInsuranceTravelApplyNow() throws InterruptedException
+{
+	WebElement element;
+	WebDriverWait wait = new WebDriverWait(driver, 20);	
+		
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]])[2]/*/*[@text='APPLY NOW'])[1]")));	
+	element.click();
+	
+	String verifyWeCameApplyNow = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Pilgrimage Holiday Insurance- Application Form']"))).getText();
+	Assert.assertEquals(verifyWeCameApplyNow, "Pilgrimage Holiday Insurance- Application Form");
+	
+	Thread.sleep(2000);
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='close button']")));	
+	element.click();	
 
 }
 
 
 @AfterClass
 public void connectionClose(){
+
  driver.close();
 }
 }

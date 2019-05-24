@@ -1,45 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="7" passed="7">
+<testng-results skipped="0" failed="0" total="11" passed="11">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="289814" started-at="2019-05-22T11:53:47Z" finished-at="2019-05-22T11:58:37Z">
+  <suite name="Default suite" duration-ms="124357" started-at="2019-05-24T11:44:23Z" finished-at="2019-05-24T11:46:27Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="289814" started-at="2019-05-22T11:53:47Z" finished-at="2019-05-22T11:58:37Z">
+    <test name="Default test" duration-ms="124357" started-at="2019-05-24T11:44:23Z" finished-at="2019-05-24T11:46:27Z">
       <class name="com.datamato.ExistingCustomerTest">
-        <test-method status="PASS" signature="connectionInit()[pri:0, instance:com.datamato.ExistingCustomerTest@b684286]" name="connectionInit" is-config="true" duration-ms="112276" started-at="2019-05-22T17:23:47Z" finished-at="2019-05-22T17:25:39Z">
+        <test-method status="PASS" signature="connectionInit()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="connectionInit" is-config="true" duration-ms="21766" started-at="2019-05-24T17:14:23Z" finished-at="2019-05-24T17:14:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- connectionInit -->
-        <test-method status="PASS" signature="existingUserORNewUser()[pri:0, instance:com.datamato.ExistingCustomerTest@b684286]" name="existingUserORNewUser" duration-ms="6022" started-at="2019-05-22T17:25:39Z" finished-at="2019-05-22T17:25:45Z">
+        <test-method status="PASS" signature="existingUserORNewUser()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="existingUserORNewUser" duration-ms="8019" started-at="2019-05-24T17:14:45Z" finished-at="2019-05-24T17:14:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- existingUserORNewUser -->
-        <test-method status="PASS" signature="existingUserLoginPage()[pri:1, instance:com.datamato.ExistingCustomerTest@b684286]" name="existingUserLoginPage" duration-ms="7626" started-at="2019-05-22T17:25:45Z" finished-at="2019-05-22T17:25:53Z">
+        <test-method status="PASS" signature="existingUserLoginPage()[pri:1, instance:com.datamato.ExistingCustomerTest@880ec60]" name="existingUserLoginPage" duration-ms="8140" started-at="2019-05-24T17:14:53Z" finished-at="2019-05-24T17:15:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- existingUserLoginPage -->
-        <test-method status="PASS" signature="recommendedOffersPage()[pri:2, instance:com.datamato.ExistingCustomerTest@b684286]" name="recommendedOffersPage" duration-ms="4859" started-at="2019-05-22T17:25:53Z" finished-at="2019-05-22T17:25:58Z">
+        <test-method status="PASS" signature="recommendedOffersPage()[pri:2, instance:com.datamato.ExistingCustomerTest@880ec60]" name="recommendedOffersPage" duration-ms="5149" started-at="2019-05-24T17:15:01Z" finished-at="2019-05-24T17:15:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- recommendedOffersPage -->
-        <test-method status="PASS" signature="PersonalLoanCalculator()[pri:3, instance:com.datamato.ExistingCustomerTest@b684286]" name="PersonalLoanCalculator" duration-ms="15360" started-at="2019-05-22T17:25:58Z" finished-at="2019-05-22T17:26:13Z">
+        <test-method status="PASS" signature="PersonalLoanCalculator()[pri:3, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanCalculator" duration-ms="15902" started-at="2019-05-24T17:15:06Z" finished-at="2019-05-24T17:15:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PersonalLoanCalculator -->
-        <test-method status="PASS" signature="PersonalLoanApplyNow()[pri:4, instance:com.datamato.ExistingCustomerTest@b684286]" name="PersonalLoanApplyNow" duration-ms="6291" started-at="2019-05-22T17:26:13Z" finished-at="2019-05-22T17:26:19Z">
+        <test-method status="PASS" signature="PersonalLoanApplyNow()[pri:4, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanApplyNow" duration-ms="6956" started-at="2019-05-24T17:15:22Z" finished-at="2019-05-24T17:15:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PersonalLoanApplyNow -->
-        <test-method status="PASS" signature="PersonalLoanSeeDetails()[pri:5, instance:com.datamato.ExistingCustomerTest@b684286]" name="PersonalLoanSeeDetails" duration-ms="137207" started-at="2019-05-22T17:26:19Z" finished-at="2019-05-22T17:28:37Z">
+        <test-method status="PASS" signature="PersonalLoanSeeDetails()[pri:5, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanSeeDetails" duration-ms="8704" started-at="2019-05-24T17:15:29Z" finished-at="2019-05-24T17:15:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PersonalLoanSeeDetails -->
-        <test-method status="PASS" signature="PocketInsurance()[pri:6, instance:com.datamato.ExistingCustomerTest@b684286]" name="PocketInsurance" duration-ms="0" started-at="2019-05-22T17:28:37Z" finished-at="2019-05-22T17:28:37Z">
+        <test-method status="PASS" signature="PocketInsurance()[pri:6, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsurance" duration-ms="21493" started-at="2019-05-24T17:15:38Z" finished-at="2019-05-24T17:15:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PocketInsurance -->
-        <test-method status="PASS" signature="connectionClose()[pri:0, instance:com.datamato.ExistingCustomerTest@b684286]" name="connectionClose" is-config="true" duration-ms="153" started-at="2019-05-22T17:28:37Z" finished-at="2019-05-22T17:28:37Z">
+        <test-method status="PASS" signature="PocketInsuranceClickTravel()[pri:7, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceClickTravel" duration-ms="2604" started-at="2019-05-24T17:15:59Z" finished-at="2019-05-24T17:16:02Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PocketInsuranceClickTravel -->
+        <test-method status="PASS" signature="PocketInsuranceTravelBrochure()[pri:8, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelBrochure" duration-ms="9189" started-at="2019-05-24T17:16:02Z" finished-at="2019-05-24T17:16:11Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PocketInsuranceTravelBrochure -->
+        <test-method status="PASS" signature="PocketInsuranceTravelKnowMore()[pri:9, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelKnowMore" duration-ms="5922" started-at="2019-05-24T17:16:11Z" finished-at="2019-05-24T17:16:17Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PocketInsuranceTravelKnowMore -->
+        <test-method status="PASS" signature="PocketInsuranceTravelApplyNow()[pri:10, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelApplyNow" duration-ms="10309" started-at="2019-05-24T17:16:17Z" finished-at="2019-05-24T17:16:27Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- PocketInsuranceTravelApplyNow -->
+        <test-method status="PASS" signature="connectionClose()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="connectionClose" is-config="true" duration-ms="173" started-at="2019-05-24T17:16:27Z" finished-at="2019-05-24T17:16:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- connectionClose -->
