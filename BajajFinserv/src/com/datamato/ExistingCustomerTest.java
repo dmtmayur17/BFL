@@ -37,7 +37,7 @@ public class ExistingCustomerTest
 	public WebElement pocketinsurance;
 
 	 //String workingDevice = "192.168.30.146:5555";
-	String workingDevice = "a315e67c";// a315e67c d6f08719
+	String workingDevice = "d6f08719";// a315e67c d6f08719
 	AppiumDriver<MobileElement> driver = null;
 	DesiredCapabilities caps = new DesiredCapabilities();
 
@@ -69,7 +69,9 @@ public List<MobileElement> getItemWebView() throws InterruptedException
 	//Thread.sleep(3000);
 	//System.out.println("In List:");
 	//System.out.println("Size of List First time: "+getItemWebView().size());
-	return (List<MobileElement>) driver.findElements(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]"));
+	
+	//return (List<MobileElement>) driver.findElements(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]"));
+	return (List<MobileElement>) driver.findElements(By.xpath("((((//*[@id='tabpanel-t0-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]"));
 	//wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[10]")));
 }
 
@@ -120,10 +122,10 @@ public void connectionInit() {
  caps.setCapability("udid", workingDevice);
  caps.setCapability("platformName", "Android");
  caps.setCapability("platformVersion", "9.0");
- //caps.setCapability("appPackage", "com.BajajServiceApp.VikramUAT");
- caps.setCapability("appPackage", "org.altruist.BajajExperia");
- //caps.setCapability("appActivity", "com.BajajServiceApp.VikramUAT.MainActivity");
- caps.setCapability("appActivity", "org.altruist.BajajExperia.MainActivity");
+ caps.setCapability("appPackage", "com.BajajServiceApp.VikramUAT");
+ //caps.setCapability("appPackage", "org.altruist.BajajExperia");
+ caps.setCapability("appActivity", "com.BajajServiceApp.VikramUAT.MainActivity");
+ //caps.setCapability("appActivity", "org.altruist.BajajExperia.MainActivity");
  caps.setCapability("noReset", "true");
  
  try
@@ -150,21 +152,17 @@ public void existingUserORNewUser() throws InterruptedException
 	Assert.assertEquals(typeOfUserLogin, "LOG IN TO ACCESS CUSTOMER SERVICE");	
 }
 
-//*[@text='Welcome To Bajaj Finserv' and @class='android.view.View']
-//*[@text='LOG IN TO ACCESS CUSTOMER SERVICE']
-//*[@text='Active Relations' and @class='android.view.View']
-
-@Test(priority= 1)
+@Test(dependsOnMethods = "existingUserORNewUser")
 public void existingUserLoginPage() throws InterruptedException
 {
 
 	WebElement element;
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.EditText' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]]")));	
-	element.sendKeys("64542461");  //163961 64542461
+	element.sendKeys("163961");  //163961 64542461
 	
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.widget.EditText' and ./parent::*[./parent::*[(./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]]]")));	
-	element.sendKeys("77982270"); //Bajaj@123 77982270 
+	element.sendKeys("Bajaj@123"); //Bajaj@123 77982270 
 	
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='LOGIN']")));
 	element.click();
@@ -174,7 +172,7 @@ public void existingUserLoginPage() throws InterruptedException
 	Assert.assertEquals(LoggedIn, "Active Relations");
 }
 
-@Test(priority= 2)
+@Test(dependsOnMethods = "existingUserLoginPage")
 public void recommendedOffersPage() throws InterruptedException
 {
 	WebElement element;
@@ -189,7 +187,7 @@ public void recommendedOffersPage() throws InterruptedException
 	
 }
 
-@Test(priority= 3)
+@Test(dependsOnMethods = "recommendedOffersPage")
 public void PersonalLoanCalculator() throws InterruptedException
 {
 	
@@ -197,33 +195,38 @@ public void PersonalLoanCalculator() throws InterruptedException
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	//Calculator
-	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='CALCULATOR'])[1]")));	
+	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='CALCULATOR'])[1]")));	
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t0-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='CALCULATORS'])[1]")));
+	
 	element.click();
 	String calculatorDisplayedStringOnApp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Flexi Interest-only Loan EMI Calculator' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View' and ./*[@text='Home']]]"))).getText();
+																											   
 	Assert.assertEquals(calculatorDisplayedStringOnApp, "Flexi Interest-only Loan EMI Calculator");	
 	Thread.sleep(7000);
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='close button']")));	
 	element.click();
 }
 
-@Test(priority= 4)
+@Test(dependsOnMethods = "PersonalLoanCalculator")
 public void PersonalLoanApplyNow() throws InterruptedException
 {
 	WebElement element;
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	//Apply now
-	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='APPLY NOW'])[1]")));	
+	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='APPLY NOW'])[1]")));	
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t0-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='APPLY NOW'])[1]")));
+	
 	element.click();
 	String applyNowDisplayedStringOnApp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Getting Personal Loans couldn’t be quicker!']"))).getText();
-	Assert.assertEquals(applyNowDisplayedStringOnApp, "Getting Personal Loans couldn’t be quicker!");
+	Assert.assertEquals(applyNowDisplayedStringOnApp, "Getting Personal Loans couldn’t be quicker!"); 
 	Thread.sleep(2000);
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='close button']")));	
 	element.click();
-	
+																				
 }
 
-@Test(priority= 5)
+@Test(dependsOnMethods = "PersonalLoanApplyNow")
 public void PersonalLoanSeeDetails() throws InterruptedException
 {
 
@@ -231,7 +234,9 @@ public void PersonalLoanSeeDetails() throws InterruptedException
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	//See Details
-	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[1]")));
+	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[1]")));
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("((((//*[@id='tabpanel-t0-3']/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*[@class='android.view.View'])[2]/*/*[@text='SEE DETAILS'])[1]")));
+	
 	element.click();
 	String seeDetailsDisplayedStringOnApp = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Personal Loan' and (./preceding-sibling::* | ./following-sibling::*)[./*[@text='Home']]]"))).getText();
 	Assert.assertEquals(seeDetailsDisplayedStringOnApp, "Personal Loan");
@@ -241,7 +246,7 @@ public void PersonalLoanSeeDetails() throws InterruptedException
 
 }
 
-@Test(priority= 6)
+@Test(dependsOnMethods = "PersonalLoanSeeDetails")
 public void PocketInsurance() throws InterruptedException
 {
 	//WebElement element;
@@ -257,14 +262,14 @@ public void PocketInsurance() throws InterruptedException
 	//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Health']]
 }
 
-@Test(priority= 7)
+@Test(dependsOnMethods = "PocketInsurance")
 public void PocketInsuranceClickTravel() throws InterruptedException
 {
 	WebElement element;
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 		
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@class='android.view.View' and ./*[@class='android.widget.Image'] and ./*[@text='Travel']]")));	
-	element.click();
+	element.click();														
 	
 	String verifyWeCameInTravel = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Travel' and @class='android.view.View']"))).getText();
 	Assert.assertEquals(verifyWeCameInTravel, "Travel");
@@ -273,24 +278,28 @@ public void PocketInsuranceClickTravel() throws InterruptedException
 
 }
 
-@Test(priority= 8)
+@Test(dependsOnMethods = "PocketInsuranceClickTravel")
 public void PocketInsuranceTravelBrochure() throws InterruptedException
 {
 	WebElement element;
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 	
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='BROCHURE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]")));	
-	element.click();
+	element.click();															
 	
-	String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Pilgrimage.pdf']"))).getText();
-	Assert.assertEquals(verifyWeCameBrochure, "Pilgrimage.pdf");
+	//String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Pilgrimage.pdf']"))).getText();
+	String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='atm-assault-robbery.pdf']"))).getText();
+	
+	//Assert.assertEquals(verifyWeCameBrochure, "Pilgrimage.pdf");
+	Assert.assertEquals(verifyWeCameBrochure, "atm-assault-robbery.pdf");
 	
 	Thread.sleep(2000);
-	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='Navigate up']")));	
+	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='Navigate up']")));	
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='Navigate up']")));
 	element.click();
 
 }
-@Test(priority= 9)
+@Test(dependsOnMethods = "PocketInsuranceTravelBrochure")
 public void PocketInsuranceTravelKnowMore() throws InterruptedException
 {
 	WebElement element;
@@ -298,25 +307,28 @@ public void PocketInsuranceTravelKnowMore() throws InterruptedException
 	
 		
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='KNOW MORE' and ./parent::*[(./preceding-sibling::* | ./following-sibling::*)[./*[@text='PILGRIMAGE COVER']]]]")));	
-	element.click();
+	element.click();														
 	
 	String verifyWeCameBrochure = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Prompt services for a worry-free pilgrimage']"))).getText();
 	Assert.assertEquals(verifyWeCameBrochure, "Prompt services for a worry-free pilgrimage");
 	
 	Thread.sleep(2000);
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='arrow back']")));	
+	
 	element.click();	
 	
 
 }
 
-@Test(priority= 10)
+@Test(dependsOnMethods = "PocketInsuranceTravelKnowMore")
 public void PocketInsuranceTravelApplyNow() throws InterruptedException
 {
 	WebElement element;
 	WebDriverWait wait = new WebDriverWait(driver, 20);	
 		
-	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]])[2]/*/*[@text='APPLY NOW'])[1]")));	
+	//element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(((//*[@id='tabpanel-t1-3']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]])[2]/*/*[@text='APPLY NOW'])[1]")));	
+	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("(((//*[@id='tabpanel-t0-3']/*[@class='android.view.View'])[2]/*/*/*[@class='android.view.View' and ./parent::*[@class='android.view.View' and (./preceding-sibling::* | ./following-sibling::*)[@class='android.view.View']]])[2]/*/*[@text='APPLY NOW'])[1]")));
+	
 	element.click();
 	
 	String verifyWeCameApplyNow = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@text='Pilgrimage Holiday Insurance- Application Form']"))).getText();
@@ -325,7 +337,6 @@ public void PocketInsuranceTravelApplyNow() throws InterruptedException
 	Thread.sleep(2000);
 	element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@contentDescription='close button']")));	
 	element.click();	
-
 }
 
 
