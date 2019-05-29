@@ -1,65 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="11" passed="11">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="190012" started-at="2019-05-28T06:20:41Z" finished-at="2019-05-28T06:23:51Z">
+  <suite name="Default suite" duration-ms="191842" started-at="2019-05-28T12:42:21Z" finished-at="2019-05-28T12:45:33Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="190012" started-at="2019-05-28T06:20:41Z" finished-at="2019-05-28T06:23:51Z">
-      <class name="com.datamato.ExistingCustomerTest">
-        <test-method status="PASS" signature="connectionInit()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="connectionInit" is-config="true" duration-ms="105222" started-at="2019-05-28T11:50:41Z" finished-at="2019-05-28T11:52:26Z">
+    <test name="Default test" duration-ms="191842" started-at="2019-05-28T12:42:21Z" finished-at="2019-05-28T12:45:33Z">
+      <class name="com.datamato.PocketInsurance">
+        <test-method status="PASS" signature="connectionInit()[pri:0, instance:com.datamato.PocketInsurance@b684286]" name="connectionInit" is-config="true" duration-ms="16716" started-at="2019-05-28T18:12:21Z" finished-at="2019-05-28T18:12:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- connectionInit -->
-        <test-method status="PASS" signature="existingUserORNewUser()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="existingUserORNewUser" duration-ms="6543" started-at="2019-05-28T11:52:26Z" finished-at="2019-05-28T11:52:33Z">
+        <test-method status="PASS" signature="PocketInsurance1()[pri:1, instance:com.datamato.PocketInsurance@b684286]" name="PocketInsurance1" duration-ms="24299" started-at="2019-05-28T18:12:37Z" finished-at="2019-05-28T18:13:02Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- existingUserORNewUser -->
-        <test-method status="PASS" signature="existingUserLoginPage()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="existingUserLoginPage" duration-ms="8063" started-at="2019-05-28T11:52:33Z" depends-on-methods="com.datamato.ExistingCustomerTest.existingUserORNewUser" finished-at="2019-05-28T11:52:41Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- existingUserLoginPage -->
-        <test-method status="PASS" signature="recommendedOffersPage()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="recommendedOffersPage" duration-ms="4757" started-at="2019-05-28T11:52:41Z" depends-on-methods="com.datamato.ExistingCustomerTest.existingUserLoginPage" finished-at="2019-05-28T11:52:46Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- recommendedOffersPage -->
-        <test-method status="PASS" signature="PersonalLoanCalculator()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanCalculator" duration-ms="11535" started-at="2019-05-28T11:52:46Z" depends-on-methods="com.datamato.ExistingCustomerTest.recommendedOffersPage" finished-at="2019-05-28T11:52:57Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PersonalLoanCalculator -->
-        <test-method status="PASS" signature="PersonalLoanApplyNow()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanApplyNow" duration-ms="6835" started-at="2019-05-28T11:52:57Z" depends-on-methods="com.datamato.ExistingCustomerTest.PersonalLoanCalculator" finished-at="2019-05-28T11:53:04Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PersonalLoanApplyNow -->
-        <test-method status="PASS" signature="PersonalLoanSeeDetails()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PersonalLoanSeeDetails" duration-ms="8506" started-at="2019-05-28T11:53:04Z" depends-on-methods="com.datamato.ExistingCustomerTest.PersonalLoanApplyNow" finished-at="2019-05-28T11:53:12Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PersonalLoanSeeDetails -->
-        <test-method status="PASS" signature="PocketInsurance()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsurance" duration-ms="17846" started-at="2019-05-28T11:53:12Z" depends-on-methods="com.datamato.ExistingCustomerTest.PersonalLoanSeeDetails" finished-at="2019-05-28T11:53:30Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- PocketInsurance -->
-        <test-method status="PASS" signature="PocketInsuranceClickTravel()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceClickTravel" duration-ms="2949" started-at="2019-05-28T11:53:30Z" depends-on-methods="com.datamato.ExistingCustomerTest.PocketInsurance" finished-at="2019-05-28T11:53:33Z">
+        </test-method> <!-- PocketInsurance1 -->
+        <test-method status="PASS" signature="PocketInsuranceClickTravel()[pri:2, instance:com.datamato.PocketInsurance@b684286]" name="PocketInsuranceClickTravel" duration-ms="3857" started-at="2019-05-28T18:13:02Z" finished-at="2019-05-28T18:13:06Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PocketInsuranceClickTravel -->
-        <test-method status="PASS" signature="PocketInsuranceTravelBrochure()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelBrochure" duration-ms="5042" started-at="2019-05-28T11:53:33Z" depends-on-methods="com.datamato.ExistingCustomerTest.PocketInsuranceClickTravel" finished-at="2019-05-28T11:53:38Z">
+        <test-method status="PASS" signature="PocketInsuranceTravelBrochure()[pri:3, instance:com.datamato.PocketInsurance@b684286]" name="PocketInsuranceTravelBrochure" duration-ms="5844" started-at="2019-05-28T18:13:06Z" finished-at="2019-05-28T18:13:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PocketInsuranceTravelBrochure -->
-        <test-method status="PASS" signature="PocketInsuranceTravelKnowMore()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelKnowMore" duration-ms="5678" started-at="2019-05-28T11:53:38Z" depends-on-methods="com.datamato.ExistingCustomerTest.PocketInsuranceTravelBrochure" finished-at="2019-05-28T11:53:44Z">
+        <test-method status="PASS" signature="PocketInsuranceTravelKnowMore()[pri:4, instance:com.datamato.PocketInsurance@b684286]" name="PocketInsuranceTravelKnowMore" duration-ms="5108" started-at="2019-05-28T18:13:11Z" finished-at="2019-05-28T18:13:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PocketInsuranceTravelKnowMore -->
-        <test-method status="PASS" signature="PocketInsuranceTravelApplyNow()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="PocketInsuranceTravelApplyNow" duration-ms="6907" started-at="2019-05-28T11:53:44Z" depends-on-methods="com.datamato.ExistingCustomerTest.PocketInsuranceTravelKnowMore" finished-at="2019-05-28T11:53:51Z">
+        <test-method status="PASS" signature="PocketInsuranceTravelApplyNow()[pri:5, instance:com.datamato.PocketInsurance@b684286]" name="PocketInsuranceTravelApplyNow" duration-ms="135997" started-at="2019-05-28T18:13:17Z" finished-at="2019-05-28T18:15:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- PocketInsuranceTravelApplyNow -->
-        <test-method status="PASS" signature="connectionClose()[pri:0, instance:com.datamato.ExistingCustomerTest@880ec60]" name="connectionClose" is-config="true" duration-ms="97" started-at="2019-05-28T11:53:51Z" finished-at="2019-05-28T11:53:51Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- connectionClose -->
-      </class> <!-- com.datamato.ExistingCustomerTest -->
+      </class> <!-- com.datamato.PocketInsurance -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
